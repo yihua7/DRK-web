@@ -2,50 +2,40 @@
 <html>
 <head>
     <meta charset="utf-8">
-    <meta name="description"
-          content="Deformable Radial Kernel Splatting">
+    <meta name="description" content="Deformable Radial Kernel Splatting">
     <meta name="keywords" content="Gaussian Splatting, Novel View Synthesis">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Deformable Radial Kernel Splatting</title>
 
     <!-- Bootstrap -->
-    <link rel="stylesheet" href="./static/css/bootstrap-4.4.1.css">
+    <link rel="stylesheet" href="./static/css/index.css">
 
     <!-- Global site tag (gtag.js) - Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-PYVRSFMDRL"></script>
     <script>
         window.dataLayer = window.dataLayer || [];
-
-        function gtag() {
-            dataLayer.push(arguments);
-        }
-
+        function gtag() { dataLayer.push(arguments); }
         gtag('js', new Date());
-
         gtag('config', 'G-PYVRSFMDRL');
     </script>
   
-  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro" 
-  rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro" rel="stylesheet">
+    <link rel="stylesheet" href="./static/css/bulma.min.css">
+    <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+    <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+    <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+    <link rel="stylesheet" href="./static/css/index.css">
 
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script defer src="./static/js/fontawesome.all.min.js"></script>
+    <script src="./static/js/bulma-carousel.min.js"></script>
+    <script src="./static/js/bulma-slider.min.js"></script>
+    <script src="./static/js/index.js"></script>
 
-  <link rel="stylesheet" href="./static/css/bulma.min.css">
-  <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
-  <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
-  <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
-  <link rel="stylesheet"
-        href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
-  <link rel="stylesheet" href="./static/css/index.css">
-
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-  <script defer src="./static/js/fontawesome.all.min.js"></script>
-  <script src="./static/js/bulma-carousel.min.js"></script>
-  <script src="./static/js/bulma-slider.min.js"></script>
-  <script src="./static/js/index.js"></script>
-
-  <link rel="stylesheet" href="./static/css/dics.original.css">
-  <script src="./static/js/event_handler.js"></script>
-  <script src="./static/js/dics.original.js"></script>
+    <link rel="stylesheet" href="./static/css/dics.original.css">
+    <script src="./static/js/event_handler.js"></script>
+    <script src="./static/js/dics.original.js"></script>
 </head>
 <body>
 
@@ -70,120 +60,64 @@
                   Related Research
               </a>
               <div class="navbar-dropdown">
-                  <a class="navbar-item" href="https://repo-sam.inria.fr/fungraph/3d-gaussian-splatting/"
-                     target="_blank">
+                  <a class="navbar-item" href="https://repo-sam.inria.fr/fungraph/3d-gaussian-splatting/" target="_blank">
                       3D Gaussian Splatting
                   </a>
               </div>
           </div>
       </div>
-
   </div>
 </nav>
 
-  <section class="hero">
+<section class="hero">
     <div class="hero-body">
       <div class="container is-max-desktop">
         <div class="columns is-centered">
           <div class="column has-text-centered">
             <h1 class="title is-1 publication-title">Deformable Radial Kernel Splatting</h1>
-            
-            <div class="title is-3">
-            <strong>Arxiv 2024</strong>
-            </div>
-
+            <div class="title is-3"><strong>Arxiv 2024</strong></div>
             <div class="is-size-5 publication-authors">
-              <div class="author-block">
-                <a href="https://yihua7.github.io/website/">Yi-Hua Huang</a><sup>1</sup>,
-              </div>
-              <div class="author-block">
-                <a href="https://scholar.google.com/citations?hl=en&user=smnEog0AAAAJ">Ming-Xian Lin</a><sup>1</sup>,
-              </div>
-              <div class="author-block">
-                <a href="https://sunyangtian.github.io/">Yang-Tian Sun</a><sup>1</sup>,
-              </div>
-              <div class="author-block">
-                <a href="https://ingra14m.github.io/">Ziyi Yang</a><sup>1</sup>,
-              </div>
-              <div class="author-block">
-                <a href="https://shawlyu.github.io/">Xiaoyang Lyu</a><sup>1</sup>,
-              </div>
-              <div class="author-block">
-                <a href="https://yanpei.me/">Yan-Pei Cao</a><sup>2 #</sup>,
-              </div>
-              <div class="author-block">
-                <a href="https://xjqi.github.io/">Xiaojuan Qi</a><sup>1 #</sup>
-              </div>
+              <div class="author-block"><a href="https://yihua7.github.io/website/">Yi-Hua Huang</a><sup>1</sup>,</div>
+              <div class="author-block"><a href="https://scholar.google.com/citations?hl=en&user=smnEog0AAAAJ">Ming-Xian Lin</a><sup>1</sup>,</div>
+              <div class="author-block"><a href="https://sunyangtian.github.io/">Yang-Tian Sun</a><sup>1</sup>,</div>
+              <div class="author-block"><a href="https://ingra14m.github.io/">Ziyi Yang</a><sup>1</sup>,</div>
+              <div class="author-block"><a href="https://shawlyu.github.io/">Xiaoyang Lyu</a><sup>1</sup>,</div>
+              <div class="author-block"><a href="https://yanpei.me/">Yan-Pei Cao</a><sup>2 #</sup>,</div>
+              <div class="author-block"><a href="https://xjqi.github.io/">Xiaojuan Qi</a><sup>1 #</sup></div>
             </div>
-
             <div class="is-size-5 publication-authors">
               <span class="author-block"><sup>1</sup>The University of Hong Kong</span>,
               <span class="author-block"><sup>2</sup>VAST</span>
           </div>
-          
           <div class="is-size-5 publication-authors">
               <span class="author-block"><sup>#</sup>Corresponding Author</span>
           </div>
-
           <div class="is-size-5 publication-authors">
             <sup>1</sup> <a href="https://www.hku.hk/"><img style="width:12%; padding-right: 15px;" src="materials/logo/HKU.png"> </a>
             <sup>2</sup> <a href="https://github.com/VAST-AI-Research"><img style="width:45%; padding-right: 15px;" src="materials/logo/VAST.png"> </a>
           </div>
-
-	    <!-- <div class="is-size-5 publication-authors">
-		<strong>Arxiv</strong>
-            </div> -->
-
             <div class="column has-text-centered">
               <div class="publication-links">
-                <!-- PDF Link. -->
-                <!-- <span class="link-block">
-                  <a href=""
-                    class="external-link button is-normal is-rounded is-dark">
-                    <span class="icon">
-                      <i class="fas fa-file-pdf"></i>
-                    </span>
-                    <span>Paper</span>
+                <span class="link-block">
+                  <a href="https://arxiv.org/pdf/2412.11752" class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon"><i class="ai ai-arxiv"></i></span>
+                    <span>arXiv</span>
                   </a>
                 </span>
                 <span class="link-block">
-                  <a href=""
-                    class="external-link button is-normal is-rounded is-dark">
-                    <span class="icon">
-                      <i class="fas fa-file-pdf"></i>
-                    </span>
-                    <span>Supp</span>
-                  </a>
-                </span> -->
-                <span class="link-block">
-                  <a href="https://arxiv.org" class="external-link button is-normal is-rounded is-dark">
-                    <span class="icon">
-                      <i class="ai ai-arxiv"></i>
-                    </span>
-                    <span>arXiv (Coming Soon)</span>
-                  </a>
-                </span>
-                <!-- <span class="link-block">
-                  <a href=""
-                     class="external-link button is-normal is-rounded is-dark">
-                    <span class="icon">
-                        <i class="fab fa-youtube"></i>
-                    </span>
-                    <span>Video</span>
-                  </a>
-                </span> -->
-                <span class="link-block">
-                  <a href="https://github.com/yihua7/"
-                    class="external-link button is-normal is-rounded is-dark">
-                    <span class="icon">
-                      <i class="fab fa-github"></i>
-                    </span>
+                  <a href="https://github.com/yihua7/" class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon"><i class="fab fa-github"></i></span>
                     <span>Code (Coming Soon)</span>
+                  </a>
+                </span>
+                <span class="link-block">
+                  <a href="https://drive.google.com/file/d/1k1Eb_0K6Bo3VS33cpwOmqHLdlQJrGyQy/view?usp=sharing" class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon"><img src="./materials/images/data.svg" alt="Data Icon" class="invert-color"></span>
+                    <span>Data</span>
                   </a>
                 </span>
               </div>
             </div>
-
           </div>
         </div>
       </div>
@@ -212,7 +146,6 @@
       </div>
     </div>
 
-    
     <section class="section">
       <div class="columns is-centered has-text-centered">
         <div class="column is-full-width">
@@ -234,7 +167,6 @@
       </div>
     </section>
 
-    
     <section class="section">
       <div class="columns is-centered has-text-centered">
         <div class="column is-full-width">
@@ -253,6 +185,79 @@
       </div>
     </section>
 
+    <section class="section">
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-full-width">
+          <h2 class="title is-3">Rendering Results</h2>
+          <div class="columns">
+            <!-- 第一个对比图 -->
+            <div class="column">
+              <div class="comparison-container">
+                <div class="comparison-slider">
+                  <!-- 第一张图片 -->
+                  <img src="./materials/comparison/armor/ges.png" alt="GES" data-type="first">
+                  <!-- 第一张图片的标注 -->
+                  <div class="label first-label">GES</div>
+    
+                  <!-- 第二张图片 -->
+                  <img src="./materials/comparison/armor/dense.png" alt="DRK" data-type="second">
+                  <!-- 第二张图片的标注 -->
+                  <div class="label second-label">DRK</div>
+    
+                  <!-- 滑动条 -->
+                  <div class="handle"></div>
+                </div>
+              </div>
+            </div>
+    
+            <!-- 第二个对比图 -->
+            <div class="column">
+              <div class="comparison-container">
+                <div class="comparison-slider">
+                  <img src="./materials/comparison/book/3dhgs.png" alt="3D-HGS" data-type="first">
+                  <div class="label first-label">3D-HGS</div>
+    
+                  <img src="./materials/comparison/book/dense.png" alt="DRK" data-type="second">
+                  <div class="label second-label">DRK</div>
+    
+                  <div class="handle"></div>
+                </div>
+              </div>
+            </div>
+    
+            <!-- 第三个对比图 -->
+            <div class="column">
+              <div class="comparison-container">
+                <div class="comparison-slider">
+                  <img src="./materials/comparison/palmtree/3dgs.png" alt="3D-GS" data-type="first">
+                  <div class="label first-label">3D-GS</div>
+    
+                  <img src="./materials/comparison/palmtree/dense.png" alt="DRK" data-type="second">
+                  <div class="label second-label">DRK</div>
+    
+                  <div class="handle"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="hero is-light is-small">
+    <div class="hero-body">
+        <div class="container is-max-desktop">
+              <div class="b-dics" style="width: 1600px; font-weight: 600;">
+                  <img src="./materials/comparison/360/3DGS.png" alt="3D-GS">
+                  <img src="./materials/comparison/360/3DHGS.png" alt="3D-HGS">
+                  <img src="./materials/comparison/360/GES.png" alt="GES">
+                  <img src="./materials/comparison/360/Sparse.png" alt="DRK (Sparse)">
+                  <img src="./materials/comparison/360/Dense.png" alt="DRK (Dense)">
+              </div>
+  
+          </div>
+      </div>
+  </section>
     
     <section class="section">
       <div class="columns is-centered has-text-centered">
@@ -272,7 +277,6 @@
       </div>
     </section>
 
-    
     <section class="section">
       <div class="columns is-centered has-text-centered">
         <div class="column is-full-width">
@@ -297,7 +301,7 @@
       <pre><code>@article{huang2024deformable,
         title={Deformable Radial Kernel Splatting},
         author={Huang, Yi-Hua and Lin, Ming-Xian and Sun, Yang-Tian and Yang, Ziyi and Lyu, Xiaoyang and Cao, Yan-Pei and Qi, Xiaojuan},
-        journal={arXiv preprint},
+        journal={arXiv preprint arXiv:2412.11752},
         year={2024}
       }</code></pre>
     </div>
@@ -313,47 +317,7 @@
     </div>
   </div>
 
-  <script src="static/js/script.js"></script>
-  <script>
-    new BeforeAfter({
-        id: '#example1'
-    });
-    new BeforeAfter({
-        id: '#example2'
-    });
-    new BeforeAfter({
-        id: '#example4'
-    });
-    new BeforeAfter({
-        id: '#example5'
-    });
-
-    new BeforeAfter({
-        id: '#example3'
-    })
-
-    new BeforeAfter({
-        id: '#example6'
-    })
-    
-    new BeforeAfter({
-        id: '#garden'
-    })
-
-    new BeforeAfter({
-        id: '#teapot'
-    })
-
-    new BeforeAfter({
-        id: '#plane12'
-    })
-
-    new BeforeAfter({
-        id: '#jupyter'
-    })
-
-</script>
+  <script src="static/js/index.js"></script>
 
 </body>
-
 </html>

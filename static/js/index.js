@@ -1,83 +1,44 @@
-window.HELP_IMPROVE_VIDEOJS = false;
-
-var INTERP_BASE = "./static/interpolation/stacked";
-var NUM_INTERP_FRAMES = 240;
-
-var interp_images = [];
-
-function preloadInterpolationImages() {
-    for (var i = 0; i < NUM_INTERP_FRAMES; i++) {
-        var path = INTERP_BASE + '/' + String(i).padStart(6, '0') + '.jpg';
-        interp_images[i] = new Image();
-        interp_images[i].src = path;
-    }
-}
-
-function setInterpolationImage(i) {
-    var image = interp_images[i];
-    image.ondragstart = function () {
-        return false;
-    };
-    image.oncontextmenu = function () {
-        return false;
-    };
-    $('#interpolation-image-wrapper').empty().append(image);
-}
-
-
-$(document).ready(function () {
-    // Check for click events on the navbar burger icon
-    $(".navbar-burger").click(function () {
-        // Toggle the "is-active" class on both the "navbar-burger" and the "navbar-menu"
-        $(".navbar-burger").toggleClass("is-active");
-        $(".navbar-menu").toggleClass("is-active");
-
+document.addEventListener('DOMContentLoaded', function () {
+    // 遍历每个对比滑动组件
+    document.querySelectorAll('.comparison-slider').forEach(function (slider) {
+      const handle = slider.querySelector('.handle');
+      const img1 = slider.querySelector('img[data-type="first"]'); // 获取第一张图片
+      const img2 = slider.querySelector('img[data-type="second"]'); // 获取第二张图片
+  
+      if (!img1 || !img2) {
+        console.error('Both images with data-type="first" and data-type="second" are required');
+        return;
+      }
+  
+      handle.addEventListener('mousedown', function (e) {
+        e.preventDefault();
+        // 添加鼠标移动和释放事件
+        document.addEventListener('mousemove', onMouseMove);
+        document.addEventListener('mouseup', onMouseUp);
+      });
+  
+      function onMouseMove(e) {
+        const rect = slider.getBoundingClientRect();
+        let x = e.clientX - rect.left;
+  
+        // 限制滑动条的移动范围
+        if (x < 0) x = 0;
+        if (x > rect.width) x = rect.width;
+  
+        const percentage = (x / rect.width) * 100;
+  
+        // 更新滑动条位置
+        handle.style.left = `${percentage}%`;
+  
+        // 更新图片裁剪区域
+        img1.style.clipPath = `inset(0 ${100 - percentage}% 0 0)`;
+        img2.style.clipPath = `inset(0 0 0 ${percentage}%)`;
+      }
+  
+      function onMouseUp() {
+        // 移除鼠标事件
+        document.removeEventListener('mousemove', onMouseMove);
+        document.removeEventListener('mouseup', onMouseUp);
+      }
     });
-
-    var options = {
-        slidesToScroll: 1,
-        slidesToShow: 3,
-        loop: true,
-        infinite: true,
-        autoplay: false,
-        autoplaySpeed: 3000,
-    }
-
-    // Initialize all div with carousel class
-    var carousels = bulmaCarousel.attach('.carousel', options);
-
-    // Loop on each carousel initialized
-    for (var i = 0; i < carousels.length; i++) {
-        // Add listener to  event
-        carousels[i].on('before:show', state => {
-            console.log(state);
-        });
-    }
-
-    // Access to bulmaCarousel instance of an element
-    var element = document.querySelector('#my-element');
-    if (element && element.bulmaCarousel) {
-        // bulmaCarousel instance is available as element.bulmaCarousel
-        element.bulmaCarousel.on('before-show', function (state) {
-            console.log(state);
-        });
-    }
-
-    /*var player = document.getElementById('interpolation-video');
-    player.addEventListener('loadedmetadata', function() {
-      $('#interpolation-slider').on('input', function(event) {
-        console.log(this.value, player.duration);
-        player.currentTime = player.duration / 100 * this.value;
-      })
-    }, false);*/
-    preloadInterpolationImages();
-
-    $('#interpolation-slider').on('input', function (event) {
-        setInterpolationImage(this.value);
-    });
-    setInterpolationImage(0);
-    $('#interpolation-slider').prop('max', NUM_INTERP_FRAMES - 1);
-
-    bulmaSlider.attach();
-
-})
+  });

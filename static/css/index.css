@@ -391,3 +391,94 @@ td {
 .section {
     width: 100%;
 }
+
+.invert-color {
+  filter: invert(1);
+}
+
+/* Add styles for the Dics text */
+.dics-text {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  color: white;
+  text-align: center;
+  padding: 10px;
+}
+
+/* 父容器设置 */
+.comparison-container {
+  position: relative;
+  width: 100%;
+  overflow: hidden; /* 确保图片裁剪时不会超出容器 */
+}
+
+/* 滑动区域 */
+.comparison-slider {
+  position: relative;
+  width: 100%;
+  height: auto; /* 自动调整高度以容纳图片 */
+}
+
+/* 第一张图片初始状态：显示左半部分 */
+.comparison-slider img[data-type="first"] {
+  display: block;
+  width: 100%; /* 图片宽度填满容器 */
+  height: auto; /* 保持图片比例 */
+  position: relative;
+  top: 0;
+  left: 0;
+  z-index: 2; /* 第一张图片在上层 */
+  clip-path: inset(0 50% 0 0); /* 默认裁剪左半部分 */
+}
+
+/* 第二张图片初始状态：显示右半部分 */
+.comparison-slider img[data-type="second"] {
+  display: block;
+  width: 100%; /* 图片宽度填满容器 */
+  height: auto; /* 保持图片比例 */
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1; /* 第二张图片在下层 */
+  clip-path: inset(0 0 0 50%); /* 默认裁剪右半部分 */
+}
+
+/* 滑动条样式 */
+.comparison-slider .handle {
+  position: absolute;
+  top: 0;
+  left: 50%; /* 初始位于中间 */
+  width: 5px;
+  height: 100%;
+  background: #fff; /* 白色滑动条 */
+  cursor: ew-resize; /* 鼠标悬停时显示左右拖动图标 */
+  z-index: 3; /* 滑动条在最上层 */
+}
+
+/* 标注样式 */
+.comparison-slider .label {
+  position: absolute;
+  width: auto;
+  padding: 5px 10px;
+  background: rgba(0, 0, 0, 0.7); /* 半透明背景 */
+  color: #fff; /* 白色字体 */
+  font-size: 14px;
+  border-radius: 3px;
+  z-index: 4; /* 确保标注在图片上方 */
+  pointer-events: none; /* 避免标注影响鼠标事件 */
+  text-align: center;
+}
+
+/* 第一张图片的标注 */
+.comparison-slider .first-label {
+  top: 10px; /* 标注显示在图片顶部 */
+  left: 10px; /* 靠左对齐 */
+}
+
+/* 第二张图片的标注 */
+.comparison-slider .second-label {
+  top: 10px; /* 标注显示在图片顶部 */
+  right: 10px; /* 靠右对齐 */
+}
