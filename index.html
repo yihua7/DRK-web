@@ -74,7 +74,9 @@
       <div class="container is-max-desktop">
         <div class="columns is-centered">
           <div class="column has-text-centered">
-            <h1 class="title is-1 publication-title">Deformable Radial Kernel Splatting</h1>
+            <h1 class="title is-1 publication-title">
+            <img src="./materials/images/homepage_logo.png" alt="DRK Logo" style="width:100px; height:60px; background: #fff; border-radius: 12px; padding: 10px; transform: translateY(12px);">
+            Deformable Radial Kernel Splatting</h1>
             <div class="title is-3"><strong>CVPR 2025</strong></div>
             <div class="is-size-5 publication-authors">
               <div class="author-block"><a href="https://yihua7.github.io/website/">Yi-Hua Huang</a><sup>1</sup>,</div>
@@ -151,17 +153,46 @@
         <div class="column is-full-width">
           <h2 class="title is-3">DRK Parameterization</h2>
           <p>
-            Our DRK representation extends Gaussian kernels with learnable radial bases, enabling the modeling of diverse shape primitives. Additionally, parameters are introduced to control the sharpness and boundary curvature of these primitives. The following video showcase the effectiveness of each parameter.
+            Our DRK representation extends Gaussian kernels with learnable radial bases, enabling the modeling of diverse shape primitives. Additionally, parameters are introduced to control the sharpness and boundary curvature of these primitives.
           </p>
           <div class="column is-full-width">
               <img src="./materials/images/kernel_illustration.png" alt="DRK Image">
           </div>
+          <p>
+            The rasterization process of DRK begins by (<b>1</b>) computing the intersection of rays with the DRK tangent planes. Next, (<b>2</b>) the scaling factor is deformed using the rotational radial bases. (<b>3</b>) The L1 and L2 norms of the intersection point relative to the kernel center are then calculated and interpolated to match the target curvature. Finally, (<b>4</b>) the boundary of the DRK is sharpened using a learnable sharpness parameter to obtain the final alpha value for rendering.
+          </p>
+          <div class="column is-full-width">
+              <img src="./materials/images/workflow_notion.png" alt="DRK Image">
+          </div>
+          <p>
+            The following video showcase the effectiveness of each parameter.
+          </p>
           <div id="results-carousel" class="carousel2 results-carousel">
             <div class="item item-steve">
               <video poster="" id="steve" autoplay controls muted loop width="100%">
                 <source src="./materials/videos/DRK-Parameters.mp4" type="video/mp4">
               </video>
             </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-full-width">
+          <h2 class="title is-3">Cache Sorting & Tile Culling</h2>
+          <p>
+            3D-GS employs EWA projection, which approximates Gaussian depth using the center depth. However, this can introduce artifacts when the depth ordering of Gaussian centers does not match the true depth ordering of the Gaussians themselves. To overcome this limitation, we propose using a sorted cache array to store DRK kernels, allowing the nearest kernel to be efficiently selected and rasterized. This method significantly improves depth sorting accuracy and eliminates artifacts.
+          </p>
+          <div class="column is-full-width">
+              <img src="./materials/images/cache-sort.png" alt="DRK Image">
+          </div>
+          <p>
+            Leveraging the explicit formulation of the DRK function, we can directly compute kernel endpoints and estimate a bounding polygon for each kernel. This enables efficient culling of DRK kernels on non-overlapping tiles, significantly enhancing rasterization performance.
+          </p>
+          <div class="column is-full-width">
+              <img src="./materials/images/tile_culling.png" alt="DRK Image">
           </div>
         </div>
       </div>
